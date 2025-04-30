@@ -15,7 +15,13 @@ class HistoryList extends StatelessWidget {
 
       itemBuilder: (context, index) {
         final item = history[history.length - 1 - index];
-        return ListTile(leading: Icon(Icons.history), title: Text(item));
+        return TweenAnimationBuilder<double>(
+          tween: Tween(begin: 0, end: 1),
+
+          duration: Duration(milliseconds: 300 + index * 60),
+          builder: (context, opacity, child) => Opacity(opacity: opacity, child: child),
+          child: ListTile(leading: Icon(Icons.history), title: Text(item)),
+        );
       },
     );
   }

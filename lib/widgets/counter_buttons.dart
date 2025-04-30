@@ -23,6 +23,11 @@ class CounterButtons extends StatelessWidget {
           onPressed: counter.increment,
           label: Text('Increment'),
           icon: Icon(Icons.add),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            shadowColor: Colors.greenAccent,
+            elevation: 10,
+          ),
         ),
       ],
     );

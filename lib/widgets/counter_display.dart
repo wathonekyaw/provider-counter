@@ -13,7 +13,16 @@ class CounterDisplay extends StatelessWidget {
         Text('Current Count', style: Theme.of(context).textTheme.headlineLarge),
         SizedBox(height: 10),
 
-        Text('$count', style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
+        AnimatedSwitcher(
+          duration: Duration(milliseconds: 300),
+
+          transitionBuilder: (child, animation) => ScaleTransition(scale: animation, child: child),
+          child: Text(
+            '$count',
+            key: ValueKey(count),
+            style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+          ),
+        ),
       ],
     );
   }
